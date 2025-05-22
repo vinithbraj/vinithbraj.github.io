@@ -4,188 +4,475 @@
     <meta charset="UTF-8">
     <title>Vinith Raj - Resume</title>
     <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --section-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 2rem;
-            background: #fff;
-            color: #222;
             line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 2rem;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
         h1 {
-            font-size: 1.6rem;
-            border-bottom: 2px solid #555;
-            margin-top: 2rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
         }
+
         h2 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            color: var(--primary-color);
             margin-top: 1.5rem;
-            color: #333;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
         }
+
         ul {
             margin: 1rem 0;
             padding-left: 1.5rem;
         }
+
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1rem;
         }
+
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+
         p {
-            margin: 0.5rem 0;
+            margin: 0.75rem 0;
+            line-height: 1.8;
+        }
+
+        .section {
+            background: var(--section-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .patent {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: var(--light-bg);
+            border-radius: 5px;
+        }
+
+        .patent-number {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Professional Summary</h1>
-    <p>Visionary and execution-driven technical leader with 20+ years of experience architecting and delivering globally distributed, high-performance systems at scale—serving over 80 million users. Adept at setting technical direction, influencing cross-functional strategy, and driving end-to-end solution delivery with a strong emphasis on scalability, security, privacy and customer-centric value.</p>
-    <p>Recognized as a hands-on Principal Architect and strategic advisor, I specialize in shaping architectural foundations that unify engineering execution with business outcomes. My expertise spans talent evaluation, effort scoping, cost modeling, compliance alignment, technology selection, and full-stack deployment—anchored in rigorous principles of privacy, resilience, and operational excellence.</p>
-    <p>A named inventor with multiple patents, I lead with a builder's mindset and a deep commitment to innovation, continuous learning, and systems thinking. I bring a depth of experience in secure multi-cloud architecture (AWS, Azure), having deployed enterprise-grade, cost-optimized platforms across data, analytics, and AI/ML domains.</p>
-    <p>Deeply versed in regulated industry frameworks—including GDPR and CCPA—and zero-trust principles, I have led the design of privacy-first architectures and compliance-aligned platforms across FinTech, communications, and privacy tech ecosystems.</p>
-    <p>Currently open to leadership opportunities at the intersection of strategic vision and technical depth—whether as a Principal Architect, Head of Architecture, or VP of Engineering—to drive innovation, elevate engineering culture, and build future-ready platforms for billions.</p>
+    <div class="container">
+        <div class="section">
+            <h1>Professional Summary</h1>
+            <p>Visionary and execution-driven technical leader with 20+ years of experience architecting and delivering globally distributed, high-performance systems at scale—serving over 80 million users. Adept at setting technical direction, influencing cross-functional strategy, and driving end-to-end solution delivery with a strong emphasis on scalability, security, privacy and customer-centric value.</p>
+            <p>Recognized as a hands-on Principal Architect and strategic advisor, I specialize in shaping architectural foundations that unify engineering execution with business outcomes. My expertise spans talent evaluation, effort scoping, cost modeling, compliance alignment, technology selection, and full-stack deployment—anchored in rigorous principles of privacy, resilience, and operational excellence.</p>
+            <p>A named inventor with multiple patents, I lead with a builder's mindset and a deep commitment to innovation, continuous learning, and systems thinking. I bring a depth of experience in secure multi-cloud architecture (AWS, Azure), having deployed enterprise-grade, cost-optimized platforms across data, analytics, and AI/ML domains.</p>
+            <p>Deeply versed in regulated industry frameworks—including GDPR and CCPA—and zero-trust principles, I have led the design of privacy-first architectures and compliance-aligned platforms across FinTech, communications, and privacy tech ecosystems.</p>
+            <p>Currently open to leadership opportunities at the intersection of strategic vision and technical depth—whether as a Principal Architect, Head of Architecture, or VP of Engineering—to drive innovation, elevate engineering culture, and build future-ready platforms for billions.</p>
+        </div>
 
-    <h1>Career Highlights</h1>
-    <ul>
-        <li>End-to-End Systems Architect: Directed the design, development, and lifecycle management of mission-critical systems across cloud infrastructure and multi-platform client applications (Windows, macOS, iOS, Android), powering products used by over 80 million users worldwide.</li>
-        <li>Security & Privacy Engineering at Scale: Led enterprise-wide initiatives to build secure, compliant, and privacy-first systems aligned with global standards (e.g., GDPR, CCPA). Expertise includes secure SDLC, threat modeling, cryptographic design, identity architecture, and real-time data protection across diverse environments.</li>
-        <li>Elite Technical Leadership: Trusted as the go-to architect and cross-functional technical advisor on every major product initiative during a two-decade career. Influenced foundational decisions across architecture, tooling, compliance, and deployment for globally distributed platforms.</li>
-        <li>Cross-Platform Innovation: Spearheaded the development of performant, scalable client and backend systems across heterogeneous environments, ensuring seamless cross-device experience and tight integration with backend telemetry and analytics pipelines.</li>
-        <li>Operational Excellence & Incident Leadership: Proven ability to lead high-stakes troubleshooting, root cause analysis, and in-field resolution of critical issues under pressure, with a deep understanding of observability, logging, and telemetry-driven diagnostics.</li>
-    </ul>
-
-    <h1>Technology Stack</h1>
-    <p>
-        AWS · Azure · Lambda · API Gateway · Terraform · CloudWatch · VPC · IAM · Route 53 · EC2 · WAF · CI/CD Pipelines · Docker · Kubernetes · WebSockets · TypeScript · Swift · C# · C++ · Kotlin · JavaScript · Objective-C · REST APIs · Chrome Extensions · Containerization Frameworks · Databricks · Black Duck · Coverity · Microsoft .NET · WireGuard · IPSEC · MIMIC · OpenVPN · Native SDKs · Browser Plug-ins · HTML · CSS
-    </p>
-
-    <h1>Skills</h1>
-    <p>
-        Technical Leadership · Cloud Architecture · DevSecOps · Project Planning · Cost Optimization · Cross-functional Collaboration · Privacy Compliance · Disaster Recovery · Systems Design · Agile Execution · Strategic Roadmapping · Documentation & Process Design · Secure Development Life Cycle (SDLC) · Threat Modeling · GDPR · CCPA · PII Handling · Cloud Migration · Infrastructure Consolidation · VPN Protocol Strategy · Network Architecture · Performance Tuning · Compliance Alignment · Engineering Team Leadership · Privacy Engineering · Identity Protection · Abuse Prevention · Cloud Security · Product Integration · UX Optimization · Backend Development · SDK Engineering · Cross-platform Integration · Compliance & Data Security · Technical Project Leadership · Engineering Execution · Communication · Agile Methodologies · Negotiation · Customer Interaction · Strategy · Project Management · UX Research · Business Insights · Technical Engineering · Problem Solving · User Experience (UX) · AI/ML Application · Endpoint Security · Threat Detection · Product Innovation · Strategic Roadmapping · UX Enhancement · Platform Portability · Technical Collaboration · Virtualization · Browser Integration · Platform Architecture · Strategic Technology Development
-    </p>
-
-    <h2>PATENTS</h2>
-    <ul>
-        <li>Systems and methods for identifying a malicious user interface (Patent No. 11100226)</li>
-        <li>Systems and methods for managing file backup (Patent No. 11113152)</li>
-        <li>System and methods for summarizing, extracting, storing and redacting information using email masking systems (Application Nos. 18/402,148; 81718648; 230032)</li>
-    </ul>
-
-    <h1>Experience</h1>
-    <h2>Technical Director</h2>
-    <p>Gen Digital · 2020–Present</p>
-
-    <ul>
-        <li>
-            <h2>2025 - Virtual Identity & VPN Projects</h2>
+        <div class="section">
+            <h1>Career Highlights</h1>
             <ul>
-                <li>Pioneered industry-first innovations in online privacy: architected and delivered Double Hop VPN and IP Shuffle technologies, elevating user anonymity and setting new benchmarks for privacy-centric network products. These innovations drove measurable gains in customer retention and subscription renewals, directly impacting top-line revenue</li>
-                <li>Led the end-to-end design and go-to-market execution of Virtual Identity Services, including Disposable phone numbers, Masked virtual credit cards, Browser fingerprint obfuscation. These solutions enabled users to operate with persistent, context-aware digital personas, while maintaining robust privacy and control across web and mobile ecosystems</li>
-                <li>Led cross-functional teams of 40+ across backend, client, and compliance domains</li>
-                <li>Owned architectural vision, tech stack selection, talent calibration, and COGS optimization while ensuring enterprise-grade resilience, regulatory compliance (e.g., GDPR, CCPA), and disaster recovery readiness</li>
+                <li>End-to-End Systems Architect: Directed the design, development, and lifecycle management of mission-critical systems across cloud infrastructure and multi-platform client applications (Windows, macOS, iOS, Android), powering products used by over 80 million users worldwide.</li>
+                <li>Security & Privacy Engineering at Scale: Led enterprise-wide initiatives to build secure, compliant, and privacy-first systems aligned with global standards (e.g., GDPR, CCPA). Expertise includes secure SDLC, threat modeling, cryptographic design, identity architecture, and real-time data protection across diverse environments.</li>
+                <li>Elite Technical Leadership: Trusted as the go-to architect and cross-functional technical advisor on every major product initiative during a two-decade career. Influenced foundational decisions across architecture, tooling, compliance, and deployment for globally distributed platforms.</li>
+                <li>Cross-Platform Innovation: Spearheaded the development of performant, scalable client and backend systems across heterogeneous environments, ensuring seamless cross-device experience and tight integration with backend telemetry and analytics pipelines.</li>
+                <li>Operational Excellence & Incident Leadership: Proven ability to lead high-stakes troubleshooting, root cause analysis, and in-field resolution of critical issues under pressure, with a deep understanding of observability, logging, and telemetry-driven diagnostics.</li>
             </ul>
-        </li>
-        <li>
-            <h2>2024 - VPN service consolidation and optimization</h2>
-            <ul>
-                <li>Unified Gen's global VPN infrastructure by consolidating cloud-hosted backend services on AWS and implementing cost-saving techniques such as split tunneling and dynamic traffic steering, resulting in a 35% reduction in operational costs and a 15% decrease in data transfer out (DTO) charges</li>
-                <li>Developed a comprehensive VPN protocol prioritization framework and testing strategy, designed to align with reviewer benchmarks and user expectations—positioning Gen VPN to become the best-in-class privacy solution in the market</li>
-                <li>Partnered with product, legal, and operations teams to ensure regulatory compliance, optimized routing, and capacity planning</li>
-            </ul>
-        </li>
-        <li>
-            <h2>2023 - Privacy Risk Scanner & Mitigation services</h2>
-            <ul>
-                <li>Architected and launched Gen's Privacy Risk Scanner, enabling users to assess personal data exposure with minimal PII input, driving 80% customer retention and 15% YoY growth in new user acquisition via actionable insights and identity protection upsell pathways.</li>
-                <li>Implemented abuse prevention systems (bot detection, rate limiting, email validation) with a full opt-out and consent-driven architecture.</li>
-                <li>Designed the system's security architecture, conducted threat modeling, and integrated privacy-by-design principles into all cloud workflows.</li>
-                <li>Collaborated with analytics stakeholders to extract behavioral patterns and trends from telemetry data, enabling downstream ML-driven user insights</li>
-                <li>Integrated the scanner into Norton, Avast, and LifeLock product lines, increasing awareness and upsell for identity protection services</li>
-            </ul>
-        </li>
-        <li>
-            <h2>2022 Private email cloud service</h2>
-            <ul>
-                <li>Spearheaded the end-to-end architecture and deployment of a secure, cloud-native Private Email service and SDK, integrated across Gen Digital's ecosystem.</li>
-                <li>Defined system architecture, established disaster recovery planning, and coordinated cross-team dependencies for successful delivery</li>
-                <li>Architected with privacy-by-design principles—emphasizing data minimization, encryption, opt-in user flows, and regulatory compliance</li>
-                <li>Co-inventor on a granted patent covering system architecture and proprietary AI/ML techniques for:</li>
+        </div>
+
+        <div class="section">
+            <h1>Technology Stack</h1>
+            <div class="tech-stack">
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">Azure</span>
+                <span class="tech-tag">Lambda</span>
+                <span class="tech-tag">API Gateway</span>
+                <span class="tech-tag">Terraform</span>
+                <span class="tech-tag">CloudWatch</span>
+                <span class="tech-tag">VPC</span>
+                <span class="tech-tag">IAM</span>
+                <span class="tech-tag">Route 53</span>
+                <span class="tech-tag">EC2</span>
+                <span class="tech-tag">WAF</span>
+                <span class="tech-tag">CI/CD Pipelines</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">Kubernetes</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Swift</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Objective-C</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Chrome Extensions</span>
+                <span class="tech-tag">Containerization Frameworks</span>
+                <span class="tech-tag">Databricks</span>
+                <span class="tech-tag">Black Duck</span>
+                <span class="tech-tag">Coverity</span>
+                <span class="tech-tag">Microsoft .NET</span>
+                <span class="tech-tag">WireGuard</span>
+                <span class="tech-tag">IPSEC</span>
+                <span class="tech-tag">MIMIC</span>
+                <span class="tech-tag">OpenVPN</span>
+                <span class="tech-tag">Native SDKs</span>
+                <span class="tech-tag">Browser Plug-ins</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h1>Skills</h1>
+            <div class="skills-container">
+                <div class="skill-tag">Technical Leadership</div>
+                <div class="skill-tag">Cloud Architecture</div>
+                <div class="skill-tag">DevSecOps</div>
+                <div class="skill-tag">Project Planning</div>
+                <div class="skill-tag">Cost Optimization</div>
+                <div class="skill-tag">Cross-functional Collaboration</div>
+                <div class="skill-tag">Privacy Compliance</div>
+                <div class="skill-tag">Disaster Recovery</div>
+                <div class="skill-tag">Systems Design</div>
+                <div class="skill-tag">Agile Execution</div>
+                <div class="skill-tag">Strategic Roadmapping</div>
+                <div class="skill-tag">Documentation & Process Design</div>
+                <div class="skill-tag">Secure Development Life Cycle (SDLC)</div>
+                <div class="skill-tag">Threat Modeling</div>
+                <div class="skill-tag">GDPR</div>
+                <div class="skill-tag">CCPA</div>
+                <div class="skill-tag">PII Handling</div>
+                <div class="skill-tag">Cloud Migration</div>
+                <div class="skill-tag">Infrastructure Consolidation</div>
+                <div class="skill-tag">VPN Protocol Strategy</div>
+                <div class="skill-tag">Network Architecture</div>
+                <div class="skill-tag">Performance Tuning</div>
+                <div class="skill-tag">Compliance Alignment</div>
+                <div class="skill-tag">Engineering Team Leadership</div>
+                <div class="skill-tag">Privacy Engineering</div>
+                <div class="skill-tag">Identity Protection</div>
+                <div class="skill-tag">Abuse Prevention</div>
+                <div class="skill-tag">Cloud Security</div>
+                <div class="skill-tag">Product Integration</div>
+                <div class="skill-tag">UX Optimization</div>
+                <div class="skill-tag">Backend Development</div>
+                <div class="skill-tag">SDK Engineering</div>
+                <div class="skill-tag">Cross-platform Integration</div>
+                <div class="skill-tag">Compliance & Data Security</div>
+                <div class="skill-tag">Technical Project Leadership</div>
+                <div class="skill-tag">Engineering Execution</div>
+                <div class="skill-tag">Communication</div>
+                <div class="skill-tag">Agile Methodologies</div>
+                <div class="skill-tag">Negotiation</div>
+                <div class="skill-tag">Customer Interaction</div>
+                <div class="skill-tag">Strategy</div>
+                <div class="skill-tag">Project Management</div>
+                <div class="skill-tag">UX Research</div>
+                <div class="skill-tag">Business Insights</div>
+                <div class="skill-tag">Technical Engineering</div>
+                <div class="skill-tag">Problem Solving</div>
+                <div class="skill-tag">User Experience (UX)</div>
+                <div class="skill-tag">AI/ML Application</div>
+                <div class="skill-tag">Endpoint Security</div>
+                <div class="skill-tag">Threat Detection</div>
+                <div class="skill-tag">Product Innovation</div>
+                <div class="skill-tag">Strategic Roadmapping</div>
+                <div class="skill-tag">UX Enhancement</div>
+                <div class="skill-tag">Platform Portability</div>
+                <div class="skill-tag">Technical Collaboration</div>
+                <div class="skill-tag">Virtualization</div>
+                <div class="skill-tag">Browser Integration</div>
+                <div class="skill-tag">Platform Architecture</div>
+                <div class="skill-tag">Strategic Technology Development</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>PATENTS</h2>
+            <div class="patent">
+                <p>Systems and methods for identifying a malicious user interface</p>
+                <p class="patent-number">Patent No. 11100226</p>
+            </div>
+            <div class="patent">
+                <p>Systems and methods for managing file backup</p>
+                <p class="patent-number">Patent No. 11113152</p>
+            </div>
+            <div class="patent">
+                <p>System and methods for summarizing, extracting, storing and redacting information using email masking systems</p>
+                <p class="patent-number">Application Nos. 18/402,148; 81718648; 230032</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h1>Experience</h1>
+            <div class="experience-item">
+                <h2>Technical Director</h2>
+                <p class="highlight">Gen Digital · 2020–Present</p>
+                
+                <div class="experience-item">
+                    <h3>2025 - Virtual Identity & VPN Projects</h3>
+                    <ul>
+                        <li>Pioneered industry-first innovations in online privacy: architected and delivered Double Hop VPN and IP Shuffle technologies, elevating user anonymity and setting new benchmarks for privacy-centric network products. These innovations drove measurable gains in customer retention and subscription renewals, directly impacting top-line revenue</li>
+                        <li>Led the end-to-end design and go-to-market execution of Virtual Identity Services, including Disposable phone numbers, Masked virtual credit cards, Browser fingerprint obfuscation. These solutions enabled users to operate with persistent, context-aware digital personas, while maintaining robust privacy and control across web and mobile ecosystems</li>
+                        <li>Led cross-functional teams of 40+ across backend, client, and compliance domains</li>
+                        <li>Owned architectural vision, tech stack selection, talent calibration, and COGS optimization while ensuring enterprise-grade resilience, regulatory compliance (e.g., GDPR, CCPA), and disaster recovery readiness</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>2024 - VPN service consolidation and optimization</h3>
+                    <ul>
+                        <li>Unified Gen's global VPN infrastructure by consolidating cloud-hosted backend services on AWS and implementing cost-saving techniques such as split tunneling and dynamic traffic steering, resulting in a 35% reduction in operational costs and a 15% decrease in data transfer out (DTO) charges</li>
+                        <li>Developed a comprehensive VPN protocol prioritization framework and testing strategy, designed to align with reviewer benchmarks and user expectations—positioning Gen VPN to become the best-in-class privacy solution in the market</li>
+                        <li>Partnered with product, legal, and operations teams to ensure regulatory compliance, optimized routing, and capacity planning</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>2023 - Privacy Risk Scanner & Mitigation services</h3>
+                    <ul>
+                        <li>Architected and launched Gen's Privacy Risk Scanner, enabling users to assess personal data exposure with minimal PII input, driving 80% customer retention and 15% YoY growth in new user acquisition via actionable insights and identity protection upsell pathways.</li>
+                        <li>Implemented abuse prevention systems (bot detection, rate limiting, email validation) with a full opt-out and consent-driven architecture.</li>
+                        <li>Designed the system's security architecture, conducted threat modeling, and integrated privacy-by-design principles into all cloud workflows.</li>
+                        <li>Collaborated with analytics stakeholders to extract behavioral patterns and trends from telemetry data, enabling downstream ML-driven user insights</li>
+                        <li>Integrated the scanner into Norton, Avast, and LifeLock product lines, increasing awareness and upsell for identity protection services</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>2022 - Private email cloud service</h3>
+                    <ul>
+                        <li>Spearheaded the end-to-end architecture and deployment of a secure, cloud-native Private Email service and SDK, integrated across Gen Digital's ecosystem.</li>
+                        <li>Defined system architecture, established disaster recovery planning, and coordinated cross-team dependencies for successful delivery</li>
+                        <li>Architected with privacy-by-design principles—emphasizing data minimization, encryption, opt-in user flows, and regulatory compliance</li>
+                        <li>Co-inventor on a granted patent covering system architecture and proprietary AI/ML techniques for:</li>
+                        <ul>
+                            <li>Email summarization</li>
+                            <li>Spam filtering</li>
+                            <li>Structured data extraction</li>
+                        </ul>
+                        <li>Designed for regulatory-grade privacy (opt-in consent, encryption, zero-retention), with full lifecycle security including PII risk mitigation and secure SDLC enforcement.</li>
+                        <li>Delivered a 23% uplift in customer retention and a 9% increase in new customer acquisition, driven by differentiated privacy and intelligent automation features.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>2021 - Norton Antitrack and Fingerprint protection</h3>
+                    <ul>
+                        <li>Led architecture and development for Norton AntiTrack, a high-impact, cross-platform solution to combat tracking and browser fingerprinting—deployed on Windows, macOS, iOS, and Android</li>
+                        <li>Built and scaled a high-performance team of 6 engineers, driving the project from concept through global release</li>
+                        <li>Achieved 700K+ active users, $36M+ in annual bookings, and 20% YoY revenue growth. Recognized by PCMag as one of the most effective privacy tools in the market.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <h3>2020 - Web Isolation onPrem and Cloud service</h3>
+                    <ul>
+                        <li>Architected Gen's Web Isolation Platform, a virtualized browser container solution enabling secure, sterile browsing for high-risk activities like banking, preventing malware, fingerprinting, and surveillance.</li>
+                        <li>Integrated into major browsers including Chrome, Firefox, Edge, and Opera, providing seamless user adoption and ecosystem compatibility.</li>
+                        <li>Designed a scalable AWS-based backend supporting secure content rendering and real-time streaming of isolated browser sessions, with low latency and high fault tolerance.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h2>Senior Principal Software Engineer</h2>
+                <p class="highlight">NortonLifelock · 2015–2019</p>
                 <ul>
-                    <li>Email summarization</li>
-                    <li>Spam filtering</li>
-                    <li>Structured data extraction</li>
+                    <li>Led development of core features across the Norton product line, including Windows, macOS, and browser-based security platforms</li>
+                    <li>Delivered critical first-to-market features such as Cloud Scanning, Streaming Installation, Download Insight, and Advanced Behavioral Detection—key differentiators in Norton's industry leadership</li>
+                    <li>Collaborated with product leaders and technical architects to drive strategic roadmap execution</li>
+                    <li>Developed v1.0 products including a secure Password Manager and cross-platform Device Finder, expanding product capabilities and customer retention</li>
+                    <li>Contributed to sustained product recognition by CNET and PCMag as an industry leader for over a decade</li>
                 </ul>
-                <li>Designed for regulatory-grade privacy (opt-in consent, encryption, zero-retention), with full lifecycle security including PII risk mitigation and secure SDLC enforcement.</li>
-                <li>Delivered a 23% uplift in customer retention and a 9% increase in new customer acquisition, driven by differentiated privacy and intelligent automation features.</li>
-            </ul>
-        </li>
-        <li>
-            <h2>2021 - Norton Antitrack and Fingerprint protection</h2>
-            <ul>
-                <li>Led architecture and development for Norton AntiTrack, a high-impact, cross-platform solution to combat tracking and browser fingerprinting—deployed on Windows, macOS, iOS, and Android</li>
-                <li>Built and scaled a high-performance team of 6 engineers, driving the project from concept through global release</li>
-                <li>Achieved 700K+ active users, $36M+ in annual bookings, and 20% YoY revenue growth. Recognized by PCMag as one of the most effective privacy tools in the market.</li>
-            </ul>
-        </li>
-        <li>
-            <h2>2020 - Web Isolation onPrem and Cloud service</h2>
-            <ul>
-                <li>Architected Gen's Web Isolation Platform, a virtualized browser container solution enabling secure, sterile browsing for high-risk activities like banking, preventing malware, fingerprinting, and surveillance.</li>
-                <li>Integrated into major browsers including Chrome, Firefox, Edge, and Opera, providing seamless user adoption and ecosystem compatibility.</li>
-                <li>Designed a scalable AWS-based backend supporting secure content rendering and real-time streaming of isolated browser sessions, with low latency and high fault tolerance.</li>
-            </ul>
-        </li>
-    </ul>
+            </div>
 
-    <h2>Senior Principal Software Engineer</h2>
-    <p>NortonLifelock · 2015–2019</p>
-    <ul>
-        <li>Led development of core features across the Norton product line, including Windows, macOS, and browser-based security platforms</li>
-        <li>Delivered critical first-to-market features such as Cloud Scanning, Streaming Installation, Download Insight, and Advanced Behavioral Detection—key differentiators in Norton's industry leadership</li>
-        <li>Collaborated with product leaders and technical architects to drive strategic roadmap execution</li>
-        <li>Developed v1.0 products including a secure Password Manager and cross-platform Device Finder, expanding product capabilities and customer retention</li>
-        <li>Contributed to sustained product recognition by CNET and PCMag as an industry leader for over a decade</li>
-    </ul>
+            <div class="experience-item">
+                <h2>Principal Software Engineer</h2>
+                <p class="highlight">Symantec Corporation · 2012–2015</p>
+                <ul>
+                    <li>Individual contributor on multiple Norton product features across Windows, macOS, and browser platforms</li>
+                    <li>Spearheaded the design and integration of an HTML/CSS/JavaScript-based rendering engine for product UI, replacing legacy solutions like Electron and Qt</li>
+                    <li>Enabled rapid UX development and theming, significantly improving performance, reducing installer size, and accelerating time-to-market for design updates</li>
+                    <li>Delivered a modern, engaging, and lightweight interface across platforms</li>
+                </ul>
+            </div>
 
-    <h2>Principal Software Engineer</h2>
-    <p>Symantec Corporation · 2012–2015</p>
-    <ul>
-        <li>Individual contributor on multiple Norton product features across Windows, macOS, and browser platforms</li>
-        <li>Spearheaded the design and integration of an HTML/CSS/JavaScript-based rendering engine for product UI, replacing legacy solutions like Electron and Qt</li>
-        <li>Enabled rapid UX development and theming, significantly improving performance, reducing installer size, and accelerating time-to-market for design updates</li>
-        <li>Delivered a modern, engaging, and lightweight interface across platforms</li>
-    </ul>
+            <div class="experience-item">
+                <h2>Senior Software Engineer</h2>
+                <p class="highlight">Symantec Corporation · 2010–2012</p>
+                <ul>
+                    <li>Individual contributor on multiple Norton product features across Windows, macOS, and browser platforms</li>
+                    <li>Designed and developed a wide range of product components across Norton lines, including disk utilities, kernel mode components, browser helper objects, Windows shell plugins, encryption/decryption SDKs, install/uninstall frameworks, API hooking systems, file and registry managers, web filtering engines, policy enforcement tools, and malware detection/removal systems</li>
+                </ul>
+            </div>
 
-    <h2>Senior Software Engineer</h2>
-    <p>Symantec Corporation · 2010–2012</p>
-    <ul>
-        <li>Individual contributor on multiple Norton product features across Windows, macOS, and browser platforms</li>
-        <li>Designed and developed a wide range of product components across Norton lines, including disk utilities, kernel mode components, browser helper objects, Windows shell plugins, encryption/decryption SDKs, install/uninstall frameworks, API hooking systems, file and registry managers, web filtering engines, policy enforcement tools, and malware detection/removal systems</li>
-    </ul>
+            <div class="experience-item">
+                <h2>Software Engineer</h2>
+                <p class="highlight">Symantec Corporation · 2009–2010</p>
+                <ul>
+                    <li>Contributed to engineering efforts across security and performance features in Norton products</li>
+                </ul>
+            </div>
 
-    <h2>Software Engineer</h2>
-    <p>Symantec Corporation · 2009–2010</p>
-    <ul>
-        <li>Contributed to engineering efforts across security and performance features in Norton products</li>
-    </ul>
+            <div class="experience-item">
+                <h2>Software QA Engineer</h2>
+                <p class="highlight">Symantec Corporation · 2005–2009</p>
+                <ul>
+                    <li>Designed and developed internal tools and automation utilities to streamline software testing, improve test coverage, and enhance overall QA efficiency across product releases</li>
+                    <li>Executed functional and regression testing, ensuring high product reliability and customer satisfaction</li>
+                </ul>
+            </div>
 
-    <h2>Software QA Engineer</h2>
-    <p>Symantec Corporation · 2005–2009</p>
-    <ul>
-        <li>Designed and developed internal tools and automation utilities to streamline software testing, improve test coverage, and enhance overall QA efficiency across product releases</li>
-        <li>Executed functional and regression testing, ensuring high product reliability and customer satisfaction</li>
-    </ul>
+            <div class="experience-item">
+                <h2>Professional Development & Certifications</h2>
+                <ul>
+                    <li>Completed AWS training courses:
+                        <ul>
+                            <li>Architecting on AWS</li>
+                            <li>Advanced Architecting on AWS</li>
+                            <li>AWS Security Best Practices</li>
+                            <li>Systems Operations on AWS</li>
+                            <li>Practical Data Science with Amazon SageMaker</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-    <h2>Professional Development & Certifications</h2>
-    <ul>
-        <li>Completed AWS training courses:
-            <ul>
-                <li>Architecting on AWS</li>
-                <li>Advanced Architecting on AWS</li>
-                <li>AWS Security Best Practices</li>
-                <li>Systems Operations on AWS</li>
-                <li>Practical Data Science with Amazon SageMaker</li>
-            </ul>
-        </li>
-    </ul>
+            <div class="experience-item">
+                <h2>Additional Achievements</h2>
+                <ul>
+                    <li>Served as Principal Cloud Architect and Technical Director, owning the cloud-native architecture for globally distributed privacy and identity services across Gen Digital's product portfolio.</li>
+                    <li>Designed and implemented cloud-native solutions on AWS for VPN, email, and browser isolation platforms with high availability, encryption, scalability, and fault tolerance.</li>
+                    <li>Architected and launched privacy-first infrastructure such as Double Hop VPN, IP Shuffle, and Web Isolation, delivering secure network routing, content rendering, and session streaming via containerized services.</li>
+                    <li>Led the architectural vision for Virtual Identity Services, including disposable phone numbers, masked virtual cards, and browser fingerprinting defense, enabling persistent yet private user personas.</li>
+                    <li>Directed end-to-end development for Gen's Private Email service and SDK, applying cloud security best practices, data minimization, and regulatory compliance (GDPR, CCPA).</li>
+                    <li>Co-inventor of patented AI/ML cloud solutions for intelligent email processing (e.g., spam filtering, summarization), emphasizing innovation within secure cloud environments.</li>
+                    <li>Unified and optimized global VPN backend services by consolidating infrastructure across AWS regions, implementing split tunneling, traffic steering, and protocol prioritization frameworks—achieving a 35% cost reduction and 15% drop in DTO charges.</li>
+                    <li>Championed cloud cost governance (COGS optimization) and platform reliability through architecture reviews, disaster recovery planning, and operational maturity assessments.</li>
+                    <li>Designed and integrated Privacy Risk Scanner as a cloud-native microservice—leveraging serverless architecture to deliver identity protection insights with minimal PII, driving 80% retention and upsell growth.</li>
+                    <li>Oversaw security architecture, including threat modeling, abuse prevention systems, and zero-trust consent workflows across all cloud-based pipelines.</li>
+                    <li>Led cross-functional teams of 40+ engineers across cloud, backend, mobile, and compliance domains, ensuring alignment between cloud strategy, engineering execution, and business impact.</li>
+                    <li>Delivered significant business outcomes through cloud-driven innovation:</li>
+                    <ul>
+                        <li>$36M+ annual bookings from Norton AntiTrack</li>
+                        <li>20% YoY growth in privacy product revenue</li>
+                        <li>23% uplift in retention and 9% increase in new acquisition via Private Email</li>
+                        <li>Widespread adoption of scalable cloud features across Norton, Avast, and LifeLock brands</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
 
-    <h2>Education</h2>
-    <p>Master of science • Electrical Engineering • University of Southern California (USC) 2003-2005</p>
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education">
+                <h3>Master of Science</h3>
+                <p>Electrical Engineering</p>
+                <p>University of Southern California (USC) 2003-2005</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
 </body>
 </html>
